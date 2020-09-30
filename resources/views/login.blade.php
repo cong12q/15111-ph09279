@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
+@extends('StudentsLayout.LayoutLogin')
+@section('title','TITLE LOGIN')
+@section('header','HEADER LOGIN')
+@section('content')
 <body>
     <form action="{{ route('post-login') }}" method="POST">
     @csrf
@@ -13,4 +10,5 @@
         <button type="submit">Đăng Nhập</button>
     </form>
 </body>
-</html>
+@section('footer','FOOTER LOGIN')
+@endsection
