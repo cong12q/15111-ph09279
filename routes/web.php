@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+//use Request de nhan giu lieu tren request
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,8 +21,10 @@ Route::get('/', function () {
 Route::get('/students',function(){
     // sử dụng query builder
     // lấy ra mảng students
+    // get tra ve arr
     $students = DB::table('students')->where('id','<',5)->get();
     //;ấy riêng 1 student;
+    //first tra ve oject
     $student = DB::table('students')-> where('id','=',1) ->first();
     //truyền vào [tên biến view nhận được =>giá trị]
     return view('students.detail',['studentValue'=>$student]);
@@ -36,3 +40,29 @@ Route::get('/students/detail',function(){
 });
 //cach 2
 // Route::view('/students/detail-2', 'students.detail');
+Route::get('/students/list',function(){
+    //truy vấn lấy danh sách student bằng query builer
+    $student=DB::table('students')->orderBy('id','desc')->get();
+    return view('students.list',['StudentsList'=>$student]);
+})->name('student-list');
+
+// chức năng login và Route POST
+Route::get('/login',function(){
+    return view('login');
+})->name('get-login');
+
+Route::post('/post-login',function(Request $request){
+    // sử dụng request->all() hoặc #request->input name
+    // dd($request->all());
+    //thực hiện truy vấn theo giá trị vừa gửi lên
+    $username = $request ->username;
+    $student=DB::table('students')
+    ->where('name','like',"%$username%")
+    ->first();
+// nếu có stdent thì sẽ redirect sang student-list
+    if ($student) {
+        return redirect()->route('student-list');
+    }
+    // nếu không thì quay lại màn login
+    return redirect()->route('get-login');
+})->name('post-login');
