@@ -209,7 +209,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </aside>
 
   <!-- CONTENT -->
+  <div class="content-wrapper">
   @yield('content')
+  </div>
   <!-- END CONTENT -->
 
   <!-- Control Sidebar -->
@@ -237,10 +239,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="{{ asset('/AdminLTE/js/jquery.min.js') }}"></script>
+<script src="{{ asset('/AdminLTE/js/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="{{ asset('/AdminLTE/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('/AdminLTE/js/jquery/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="{{ asset('/AdminLTE/js/adminlte.min.js') }}"></script>
+<script src="{{ asset('/AdminLTE/js/jquery/adminlte.min.js') }}"></script>
 </body>
 </html>
