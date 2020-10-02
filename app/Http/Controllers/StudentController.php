@@ -55,9 +55,9 @@ class StudentController extends Controller
         //Nếu chỉ chuyền vào $student thì sẽ nhận được id cho Student
         // còn nếu truyền vào Student $student thì sẽ truy vaanstimf student có id=$student
         $studentObjEloquentModel = Student::find($student);
-        $studentObjQueryBuiler = DB::table('students')->find($student);
-        $studentObj = $student;
-        dd($studentObjEloquentModel->name, $studentObjQueryBuiler->name);
+        // $studentObjQueryBuiler = DB::table('students')->find($student);
+        // $studentObj = $student;
+        return view('students.show',['StudentsShow'=>$studentObjEloquentModel]);
 
     }
 
