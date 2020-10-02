@@ -66,3 +66,7 @@ Route::post('/post-login',function(Request $request){
     // nếu không thì quay lại màn login
     return redirect()->route('get-login');
 })->name('post-login');
+
+Route::get('/admin',function(){
+    return view('testadmin');
+});
