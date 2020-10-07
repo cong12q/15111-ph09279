@@ -69,7 +69,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+       return view('students.edit', ['student'=>$student]);
     }
 
     /**
@@ -81,7 +81,19 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        // dd($request -> all());
+        // Gán giá trị mới cho các thuộc tính của student dữ liệu
+        $student->name = $request->name;
+        $student->phone = $request->phone;
+        $student->age = $request->age;
+        $student->gender = $request->gender;
+        $student->address = $request->address;
+        $student->is_active = $request->is_active;
+        // thực hiện gọi phương thức save() để lưu
+        $student->save();
+        return redirect()->route('students.index');
+
+        // cách 2: $student->update(['name'=> $request->name])
     }
 
     /**
@@ -92,6 +104,13 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        //kiểm tra tồn tại sinh viên mới tiến hành xóa
+        if ($student) {
+            $student->delete(); //(Trả về True or False)
+
+            //cách 2: Student::destroy($student->id)  (Trả về số lượng bản ghi bị xóa)
+        }
+        //redirect về danh sách có thực hiện về danh sách mới
+        return redirect()->route('students.index');
     }
 }

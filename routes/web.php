@@ -30,6 +30,10 @@ Route::resource('students', StudentController::class)
 // Tạo Route cho subject controoler không dùng resoure
 Route::get('/subjects', [subjectController::class, 'index'])->name('subjects.index');
 
+
+//edit
+
+
 // Route::get('/students',function(){
 //     // sử dụng query builder
 //     // lấy ra mảng students
