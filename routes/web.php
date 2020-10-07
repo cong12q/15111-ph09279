@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\subjectController;
+use App\Http\Controllers\PostController;
 //use Request de nhan giu lieu tren request
 use Illuminate\Http\Request;
 
@@ -30,10 +31,20 @@ Route::resource('students', StudentController::class)
 // Tạo Route cho subject controoler không dùng resoure
 Route::get('/subjects', [subjectController::class, 'index'])->name('subjects.index');
 
+//post
+Route::resource('posts', PostController::class);
+
+Route::get('/post',function(){
+    $posts = Post::all(); // lấy ra hết
+    //hoặc $student =Student::orderBy('id','desc')->get();
+    $posts = Post::paginate(5); //lay ra ds co phan trang
+    return view('posts.list',['posts'=>$posts]);
+    
+    // $comment = \App\Models\Comment::find(1);
+    // dd($comment->post);
+});
 
 //edit
-
-
 // Route::get('/students',function(){
 //     // sử dụng query builder
 //     // lấy ra mảng students

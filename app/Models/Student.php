@@ -16,6 +16,10 @@ class Student extends Model
         'age',
         'gender',
         'address',
-        'is_active'
+        'is_active',
     ];
+    //function post the hien 1 sinh viên có nhiều bài post
+    public function posts(){
+        return $this->hasMany(Post::class, 'student_id', 'id');
+    }
 }
