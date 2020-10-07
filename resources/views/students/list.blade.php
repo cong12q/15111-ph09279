@@ -16,7 +16,10 @@
     <th>Gender</th>
     <th>Address</th>
     <th>Active</th>
-    <th>Action</th>
+    <th>
+    <a href="{{ route('students.create')}}"><button class="btn btn-success">Thêm mới</button></a>
+
+    </th>
 </thead>
 <tbody>
 @foreach($StudentsList as $student)
