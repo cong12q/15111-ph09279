@@ -29,7 +29,8 @@ class StudentController extends Controller
     // create() sử dụng phương thức get route name students.create
     public function create()
     {
-        //
+        return view('students.create');
+        
     }
 
     /**
@@ -40,7 +41,18 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $student = new Student;
+        $student->name = $request->input('name');
+        $student->phone = $request->input('phone');
+        $student->phone = $request->input('phone');
+        $student->age = $request->input('age');
+        $student->gender = $request->input('gender');
+        $student->address = $request->input('address');
+        $student->is_active = $request->input('is_active');
+
+        // thực hiện gọi phương thức save() để lưu
+        $student->save();
+        return redirect()->route('students.index');
     }
 
     /**
