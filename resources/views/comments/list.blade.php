@@ -10,27 +10,27 @@
 @section('content')
 <table class="table">
 <thead>
-    <th>Student</th>
-    <th>Desc</th>
     <th>content</th>
-    <th>image_url</th>
+    <th>student_id</th>
+    <th>post_id</th>
     <th>status</th>
+    <th>desc</th>
     <th>
     <a href="{{ route('students.create')}}"><button class="btn btn-success">Thêm mới</button></a>
 
     </th>
 </thead>
 <tbody>
-@foreach($posts as $post)
+@foreach($comments as $comment)
         <tr>
-        <td>{{$post->student->name}}</td>
-        <td>{{$post -> desc}}</td>
-        <td>{{$post -> content}}</td>
-        <td>{{$post -> image_url}}</td>
-        <td>{{$post -> status}}</td>
+        <td>{{$comment->content }}</td>
+        <td>{{$comment -> student_id}}</td>
+        <td>{{$comment -> post_id}}</td>
+        <td>{{$comment -> status}}</td>
+        <td>{{$comment -> post -> desc}}</td>
         </tr>
 @endforeach
-<tr><td colspan="2" >{{$posts->links()}}</td></tr>
+<tr><td colspan="2" >{{$comments->links()}}</td></tr>
 </tbody>
 </table>
 @section('footer', 'FOOTER LIST EXTENDS')
