@@ -14,7 +14,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = Category::all(); // lấy ra hết
+        //hoặc $student =Student::orderBy('id','desc')->get();
+        $category = Category::paginate(5); //lay ra ds co phan trang
+        return view('categories.list',['categories'=>$category]);
     }
 
     /**

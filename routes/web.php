@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\subjectController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
+
 //use Request de nhan giu lieu tren request
 use Illuminate\Http\Request;
 
@@ -33,6 +36,10 @@ Route::get('/subjects', [subjectController::class, 'index'])->name('subjects.ind
 
 //post
 Route::resource('posts', PostController::class);
+//category
+Route::resource('categories', CategoryController::class);
+//comment
+Route::resource('comments', CommentController::class);
 
 Route::get('/post',function(){
     $posts = Post::all(); // lấy ra hết
