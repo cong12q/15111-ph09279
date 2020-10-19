@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
 use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Post;
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {   
+        User::factory(3)->create();
         Student::factory(10)->create();
         Subject::factory(20)->create();
         Post::factory(10)->create();

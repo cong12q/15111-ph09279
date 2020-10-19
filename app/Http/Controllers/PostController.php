@@ -9,6 +9,12 @@ use App\Http\Requests\PostStoreRequest;
 
 class PostController extends Controller
 {
+
+    public function _construct(){
+        $this->middleware('activeLoginUser');
+        // $this->middleware('adminLogin');
+        // $this->middleware('activeLoginUser')->only();
+    }
     /**
      * Display a listing of the resource.
      *

@@ -7,6 +7,8 @@ use App\Http\Controllers\subjectController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LoginController;
+
 
 //use Request de nhan giu lieu tren request
 use Illuminate\Http\Request;
@@ -22,12 +24,18 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('login', [LoginController::class, 'index'])->name('get-login');
+
+Route::post('post-login', [LoginController::class, 'postLogin'])->name('post-login');
+
+Route::get('logout',[LoginController::class, 'logout'])->name('logout');
 
 Route::get('/', function () {
     return view('welcome');
 });
 // Tạo Route resource cho students controller
 Route::resource('students', StudentController::class)
+        // ->middleware('auth')
         // ->only(['index']) khi chỉ dùng hàm nào đó
         // ->except(['index]) khi cần bỏ qua hàm nào đó
 ;

@@ -16,7 +16,7 @@
     <th>image_url</th>
     <th>status</th>
     <th>
-    <a href="{{ route('students.create')}}"><button class="btn btn-success">Thêm mới</button></a>
+    <a href="{{ route('posts.create')}}"><button class="btn btn-success">Thêm mới</button></a>
 
     </th>
 </thead>

@@ -5,7 +5,7 @@
 <body>
     <form action="{{ route('post-login') }}" method="POST">
     @csrf
-        <input type="text" name="username" placeholder="usename" id="">
+        <input type="text" name="email" placeholder="email" id="">
         <input type="password" name="password" placeholder="password" id="">
         <button type="submit">Đăng Nhập</button>
     </form>
